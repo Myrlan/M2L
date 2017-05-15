@@ -44,12 +44,13 @@ public class Inscription extends JFrame{
 		JTextField entre4 = new JTextField(10);
 		JLabel telephone = new JLabel("Téléphone : ");
 		JTextField entre5 = new JTextField(10);
-		entre1.setFont(font);
+		
 		JLabel Mot_de_passe = new JLabel("Mot de passe*");
 		JTextField entre6 = new JTextField(10);
 		JLabel Mot_de_passe1 = new JLabel("Valider le mot de passe* : ");
 		JTextField entre7 = new JTextField(10);
 		
+		entre1.setFont(font);
 		nom.setFont (font);
 		prenom.setFont (font);
 		adresse.setFont (font);
@@ -57,6 +58,14 @@ public class Inscription extends JFrame{
 		telephone.setFont (font);
 		Mot_de_passe.setFont (font);
 		Mot_de_passe1.setFont (font);
+		
+		entre1.setFont(font);
+		entre2.setFont(font);
+		entre3.setFont(font);
+		entre4.setFont(font);
+		entre5.setFont(font);
+		entre6.setFont(font);
+		entre7.setFont(font);
 			
 		entre1.setDocument(new JTextFieldLimit(50));
 		entre2.setDocument(new JTextFieldLimit(50));
