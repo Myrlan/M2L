@@ -38,16 +38,15 @@ public class Inscription extends JFrame{
 		JTextField entre1 = new JTextField(10);
 		JLabel prenom = new JLabel("Prénom* : ");
 		JTextField entre2 = new JTextField(10);
-		JLabel adresse = new JLabel("Adresse : ");
-		JTextField entre3 = new JTextField(10);
 		JLabel email = new JLabel("Email* : ");
+		JTextField entre3 = new JTextField(10);
+		JLabel Mot_de_passe = new JLabel("Mot de passe*");
 		JTextField entre4 = new JTextField(10);
-		JLabel telephone = new JLabel("Téléphone : ");
-		JTextField entre5 = new JTextField(10);
-		
-		JLabel Mot_de_passe = new JLabel("Mot de *");
-		JTextField entre6 = new JTextField(10);
 		JLabel Mot_de_passe1 = new JLabel("Valider le mot de passe* : ");
+		JTextField entre5 = new JTextField(10);
+		JLabel telephone = new JLabel("Téléphone : ");
+		JTextField entre6 = new JTextField(10);
+		JLabel adresse = new JLabel("Adresse : ");
 		JTextField entre7 = new JTextField(10);
 		
 		entre1.setFont(font);
@@ -81,16 +80,15 @@ public class Inscription extends JFrame{
 		contenuFenêtre.add(prenom);
 		contenuFenêtre.add(entre2);
 		contenuFenêtre.add(email);
-		contenuFenêtre.add(entre4);
-		contenuFenêtre.add(Mot_de_passe);
-		contenuFenêtre.add(entre6);
-		contenuFenêtre.add(Mot_de_passe1);
-		contenuFenêtre.add(entre7);
-		
-		contenuFenêtre.add(adresse);
 		contenuFenêtre.add(entre3);
-		contenuFenêtre.add(telephone);
+		contenuFenêtre.add(Mot_de_passe);
+		contenuFenêtre.add(entre4);
+		contenuFenêtre.add(Mot_de_passe1);
 		contenuFenêtre.add(entre5);
+		contenuFenêtre.add(adresse);
+		contenuFenêtre.add(entre6);
+		contenuFenêtre.add(telephone);
+		contenuFenêtre.add(entre7);
 		
 
 		
@@ -110,28 +108,20 @@ public class Inscription extends JFrame{
 		valider.setBounds(100, 1000, 50, 50);
 		valider.addActionListener(new ActionListener(){
  	    	public void actionPerformed(ActionEvent e){
- 	    		SQLUtilisateur utilisateur = new SQLUtilisateur();
-	    		utilisateur.setNom(entre1.getText());
-	    		utilisateur.setPrenom(entre2.getText());
-	    		utilisateur.setAdresse(entre3.getText());
-	    		utilisateur.setEmail(entre4.getText());
-	    		utilisateur.setTel(Integer.parseInt(entre5.getText()));
-	    		utilisateur.setMdp(entre6.getText());
 	    		
-	    		modeleUtilisateur.insert_user();
 
  	    		//System.out.print("s1:"+s1);
  	    		Validation valid=new Validation();
- 	    		if(entre1.getText().equals(null))
+ 	    		if(entre1.getText().isEmpty())
  	    		{
  	    		valid.Validation("ERREUR: Vous n'avez pas rempli tous les champs obligatoires");
  	    		}
- 	    		else if(!(entre6.getText().equals(entre7.getText())))
+ 	    		else if(!(entre4.getText().equals(entre5.getText())))
  	    		{
  	    			valid.Validation("ERREUR: Votre mot de passe ne concorde pas ");
  	    			
  	    		}
- 	    		else if(entre6==null||entre7==null)
+ 	    		else if(entre4.getText().isEmpty()||entre5.getText().isEmpty())
  	    		{
  	    			valid.Validation("ERREUR: veillez saisir votre mot de passe 2 fois ");
  	    		}
@@ -141,6 +131,29 @@ public class Inscription extends JFrame{
  	    		
  	    		dispose();
  	    		}*/
+ 	    		else{
+ 	    			
+ 	    			SQLUtilisateur utilisateur = new SQLUtilisateur();
+ 		    		utilisateur.setNom(entre1.getText());
+ 		    		utilisateur.setPrenom(entre2.getText());
+ 		    		utilisateur.setEmail(entre3.getText());
+ 		    		utilisateur.setMdp(entre4.getText());
+ 		    		if(entre6.getText().isEmpty()){}
+ 		    		
+ 		    		else{
+ 		    			utilisateur.setAdresse(entre6.getText());
+ 		    		}
+ 		    		if(entre7.getText().isEmpty()){}
+ 		    		else{
+ 	 		    		utilisateur.setTel(Integer.parseInt(entre7.getText()));
+ 		    		}
+
+ 		    		
+ 		    		modeleUtilisateur.insert_user();
+ 		    		
+ 		    		valid.Validation("Votre compte a été enregistré.");
+ 	    			
+ 	    		}
  	    		
  	    		
  	    		}
