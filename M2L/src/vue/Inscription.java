@@ -45,7 +45,7 @@ public class Inscription extends JFrame{
 		JLabel telephone = new JLabel("Téléphone : ");
 		JTextField entre5 = new JTextField(10);
 		
-		JLabel Mot_de_passe = new JLabel("Mot de passe*");
+		JLabel Mot_de_passe = new JLabel("Mot de *");
 		JTextField entre6 = new JTextField(10);
 		JLabel Mot_de_passe1 = new JLabel("Valider le mot de passe* : ");
 		JTextField entre7 = new JTextField(10);
